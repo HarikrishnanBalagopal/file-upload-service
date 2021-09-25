@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        body {
+            background-color: #002e2c;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #035e7b;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+            padding: 1em;
+            display: grid;
+            place-items: center;
+            min-height: 12em;
+        }
+
+        form>input {
+            font-family: 'Montserrat', sans-serif;
+            padding: 1em;
+        }
+
+        form>progress {
+            width: 100%;
+        }
+
+        #file-to-upload {
+            display: none;
+        }
+
+        #file-to-upload-label {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        #uploaded-files>li>a {
+            color: skyblue;
+            text-decoration: none;
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="file-upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file-to-upload" id="file-to-upload-label">Choose a file to upload:</label>
+            <input type="file" id="file-to-upload" name="file" />
+            <input type="submit" />
+            <label for="upload-progress">File upload progress:<span id="progress-percent"></span></label>
+            <progress id="upload-progress" value="0" max="100"></progress>
+        </form>
+        <h1 class="centered-text">Uploaded Files</h1>
+        <ul id="uploaded-files"></ul>
+    </div>
+    <script src="/js/main.js" type="module"></script>
+</body>
+
+</html>
